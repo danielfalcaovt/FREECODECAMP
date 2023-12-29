@@ -1,0 +1,36 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #272727;
+}
+
+body {
+  background-color: #272727;
+}
+
+* {
+  padding: 0px;
+}
+
+body div {
+  width: 500px;
+  height: 500px;
+  margin: auto;
+}
+body div div {
+  margin: auto;
+  width: 250px;
+  height: 250px;
+  background-color: red;
+}
+
+.container {
+  background-color: #474747;
+}
+.container .container__header {
+  background-color: blue;
+}
+.container .container__header:hover {
+  cursor: pointer;
+}/*# sourceMappingURL=main.css.map */

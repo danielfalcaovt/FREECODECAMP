@@ -1,0 +1,46 @@
+@import "./pattern";
+@import "./variables";
+// We create variables using $ instead of --var() and call it at the same thing.
+
+// IN SASS WE CAN CREATE MAPS, BUT ISN'T THE JS MAP, LEMME SHOW
+$pattern-width:(
+    "small":250px,
+    "medium": 500px,
+    "biggest": 750px
+);
+
+// AND WE CALL IT USING A RESERVED WORD CALLED: get-map("name-of-map","name-of-key")
+
+body{
+    //Calling a variable
+    background-color: $primary-color;
+    //Calling a map
+
+}
+*{
+    padding: 0px;
+}
+body {
+
+    div{
+    width: map-get($pattern-width,"medium");
+    height: map-get($pattern-width,"medium");
+    margin: auto;
+        div{
+            margin: auto;
+            width: map-get($pattern-width, small );
+            height: map-get($pattern-width, small );
+            background-color: red;
+        }
+    }
+}
+.container{
+    background-color: $second-color;
+    // & == the name of the parent
+    #{&}__header{
+        background-color: blue;
+        &:hover{
+            cursor: pointer;
+        }
+    }
+}
