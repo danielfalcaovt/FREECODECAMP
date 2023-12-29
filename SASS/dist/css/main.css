@@ -5,6 +5,20 @@
   background-color: #272727;
 }
 
+.light-theme {
+  background-color: white;
+  color: black;
+}
+
+.dark-theme {
+  background-color: black;
+  color: white;
+}
+
+/* We create variables using $ instead of --var() and call it at the same thing.
+
+ THAT FORM WE CREATE FUNCTIONS THAT WORKS LIKE IN JS, BUT WE WILL USE MORE THE MIXINS
+*/
 body {
   background-color: #272727;
 }
@@ -13,13 +27,29 @@ body {
   padding: 0px;
 }
 
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+@media (max-width: 800px) {
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+}
 body div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   width: 500px;
   height: 500px;
-  margin: auto;
 }
 body div div {
-  margin: auto;
   width: 250px;
   height: 250px;
   background-color: red;
@@ -33,4 +63,11 @@ body div div {
 }
 .container .container__header:hover {
   cursor: pointer;
+}
+
+#paragraphs #p1, #paragraphs #p2 {
+  color: white;
+}
+#paragraphs #p1:hover, #paragraphs #p2:hover {
+  background: red;
 }/*# sourceMappingURL=main.css.map */
