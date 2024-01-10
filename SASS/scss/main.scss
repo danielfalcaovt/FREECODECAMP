@@ -1,112 +1,50 @@
-@import "./pattern";
-@import "./variables";
-$colors--map:(
-    "red":red,
-    "blue":#474774,
-    "yellow":yellow
-
-);
-@mixin FlexCenter($dir,$wrap){
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    flex-direction: $dir;
-};
-
-//MIXIN DE TEMAS
-@mixin toggle-theme($light-theme : true){
-    @if ($light-theme){
-        background-color: lighten($primary-color,100%);
-        color: darken($second-color,100%);
-    }@else{
-        background-color: darken($primary-color, 100%);
-        color: lighten($primary-color,100%);
-    }
-}
-.light-theme{
-    @include toggle-theme($light-theme:true)
-}
-.dark-theme{
-    @include toggle-theme($light-theme:false)
-}
-
-//CREATING A MEDIA QUERY WITH MIXIN, THE @CONTENT WILL BE PASS IN THE CALLING OF THE FUNCTION
-@mixin media-phone{
-    @media (max-width:$mobile-size){
-        //this will be pass when we call the mixin
-        @content
-    }
-}
-/* We create variables using $ instead of --var() and call it at the same thing.
-
- THAT FORM WE CREATE FUNCTIONS THAT WORKS LIKE IN JS, BUT WE WILL USE MORE THE MIXINS
-*/
- @function colors($qualquer-coisa){
-    @return map-get($colors--map , $anything);
-}
-
-// IN SASS WE CAN CREATE MAPS, BUT ISN'T THE JS MAP, LEMME SHOW
-$pattern-width:(
-    "small":250px,
-    "medium": 500px,
-    "biggest": 750px
-);
-
-// AND WE CALL IT USING A RESERVED WORD CALLED: get-map("name-of-map","name-of-key")
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400&display=swap');
+@import "config";
 
 body{
-    //Calling a variable
-    background-color: $primary-color;
-    
-    //Calling a map
-    
+    background: $primary-color;
+    color: white;
+    height: 100vh;
+    font-family: "Work Sans", Arial, Helvetica, sans-serif;
+    line-height: 1;
 }
-*{
-    padding: 0px;
+h1,h2,h3{
+    font-weight: 400;
 }
-body {
-    @include FlexCenter(row,wrap);
-    //HERE I CALL THE MEDIA QUERY WITH THE VALUES THAT I WANT TO HAVE INSIDE IT
-    @include media-phone{
-        @include FlexCenter(column,nowrap);
-    }
-    div{
-        @include FlexCenter(column,nowrap);
-        width: map-get($pattern-width,"medium");
-        height: map-get($pattern-width,"medium");
-        div{
-            
-            width: map-get($pattern-width, small );
-            height: map-get($pattern-width, small );
-            background-color: red;
+a{
+    color: white;
+    text-decoration: none;
+}
+header{
+    position: fixed;
+    top: 0px;
+    z-index: 2;
+    width: 100%;
+    padding: 1rem;
+}
+main{
+    height: 100%;
+    width: 100%;
+
+    .social-icons{
+        position: fixed;
+        bottom: 1rem;
+        left: 1rem;
+        a{
+            padding: 0.4rem;
+
+            &:hover{
+                color: $secondary-color;
+            }
         }
     }
 }
-.container{
-    background-color: $second-color;
-    // & == the name of the parent
-    #{&}__header{
-        background-color: blue;
-        &:hover{
-            cursor: pointer;
-        }
-    }
-}
-
-
-
-#paragraphs {
-
-    #p1{
-        color: white;
-        //REMEMBER MOTHERF** THE (&) IS FOR THE ELEMENT THAT IS IN USE!
-        &:hover{
-            background: red;
-        }
-    }
-    // @EXTEND METHOD, DUPLICATE ALL STYLES APPLIED TO THE ELEMENT THAT IS PASSED AFTER
-    //vv here i'm using the #{} to talk about the #paragraphs this returns (#paragraphs #p2{})
-    #p2{
-        @extend #p1
-    }
+footer{
+    font-size: 1rem;
+    position: fixed;
+    bottom: 0.4rem;
+    right: 1rem;
+    padding: 1rem;
+    color: white;
+    text-align:right;
 }

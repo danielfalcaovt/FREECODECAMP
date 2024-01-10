@@ -1,73 +1,57 @@
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400&display=swap");
 * {
-  padding: 0px;
+  box-sizing: border-box;
   margin: 0px;
-  font-family: Arial, Helvetica, sans-serif;
-  background-color: #272727;
-}
-
-.light-theme {
-  background-color: white;
-  color: black;
-}
-
-.dark-theme {
-  background-color: black;
-  color: white;
-}
-
-/* We create variables using $ instead of --var() and call it at the same thing.
-
- THAT FORM WE CREATE FUNCTIONS THAT WORKS LIKE IN JS, BUT WE WILL USE MORE THE MIXINS
-*/
-body {
-  background-color: #272727;
-}
-
-* {
   padding: 0px;
 }
 
 body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-}
-@media (max-width: 800px) {
-  body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-  }
-}
-body div {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  width: 500px;
-  height: 500px;
-}
-body div div {
-  width: 250px;
-  height: 250px;
-  background-color: red;
-}
-
-.container {
-  background-color: #474747;
-}
-.container .container__header {
-  background-color: blue;
-}
-.container .container__header:hover {
-  cursor: pointer;
-}
-
-#paragraphs #p1, #paragraphs #p2 {
+  background: #272727;
   color: white;
+  height: 100vh;
+  font-family: "Work Sans", Arial, Helvetica, sans-serif;
+  line-height: 1;
 }
-#paragraphs #p1:hover, #paragraphs #p2:hover {
-  background: red;
+
+h1, h2, h3 {
+  font-weight: 400;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+header {
+  position: fixed;
+  top: 0px;
+  z-index: 2;
+  width: 100%;
+  padding: 1rem;
+}
+
+main {
+  height: 100%;
+  width: 100%;
+}
+main .social-icons {
+  position: fixed;
+  bottom: 1rem;
+  left: 1rem;
+}
+main .social-icons a {
+  padding: 0.4rem;
+}
+main .social-icons a:hover {
+  color: #538DD7;
+}
+
+footer {
+  font-size: 1rem;
+  position: fixed;
+  bottom: 0.4rem;
+  right: 1rem;
+  padding: 1rem;
+  color: white;
+  text-align: right;
 }/*# sourceMappingURL=main.css.map */
